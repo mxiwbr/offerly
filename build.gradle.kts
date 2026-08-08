@@ -1,7 +1,10 @@
 plugins {
-    id("java-library")
-    id("xyz.jpenilla.run-paper") version "3.0.2"
+    id("java")
+    id("com.gradleup.shadow") version "9.3.1"
 }
+
+group = "io.github.mxiwbr"
+version = "1.0.0-alpha  "
 
 repositories {
     mavenCentral()
@@ -9,26 +12,26 @@ repositories {
 }
 
 dependencies {
+    // bStats
+    implementation("org.bstats:bstats-bukkit:3.2.1")
+
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // compile only if all features are available in 1.21.11 (plugin works 1.21.11 and newer)
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    implementation("org.apache.commons:commons-text:1.10.0")
+    // Lombok
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    // Gson implementation for plugin update service
+    implementation("com.google.code.gson:gson:2.10.1")
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
-}
-
-tasks {
-    runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
-        minecraftVersion("1.21.11")
-        jvmArgs("-Xms2G", "-Xmx2G")
-    }
-
-    processResources {
-        val props = mapOf("version" to version)
-        filesMatching("plugin.yml") {
-            expand(props)
-        }
-    }
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
