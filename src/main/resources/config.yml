@@ -1,0 +1,17 @@
+# =========================================
+# Capture Biomes - Configuration
+# =========================================
+
+enabled: true # Enable/disable plugin functionality
+
+# =========================================
+# Advanced Settings – only modify if you know what you're doing!
+# Misconfiguring these could potentially break the plugin or cause unexpected behavior.
+# =========================================
+
+console:
+  enable-logging: true
+  enable-additional-logging: false # Extra debug logs
+
+bstats:
+  enabled: true

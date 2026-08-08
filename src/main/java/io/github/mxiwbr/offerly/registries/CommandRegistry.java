@@ -17,8 +17,8 @@ public class CommandRegistry {
 
         Offerly.INSTANCE.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event -> {
 
-            // Root Command /capturebiomes
-            LiteralArgumentBuilder<CommandSourceStack> rootCommand = Commands.literal("capturebiomes")
+            // Root Command /offerly
+            LiteralArgumentBuilder<CommandSourceStack> rootCommand = Commands.literal("offerly")
                     // require operator permission
                     .requires(src -> src.getSender() instanceof Player player && player.isOp());
 

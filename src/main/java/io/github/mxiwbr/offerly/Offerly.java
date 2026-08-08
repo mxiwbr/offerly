@@ -43,8 +43,17 @@ public final class Offerly extends JavaPlugin {
         // bStats - only if enabled in config (default)
         if (CONFIG.isBstatsEnabled()) {
 
-            final int bStatsPluginId = 30340;
-            Metrics bStatsMetrics = new Metrics(this, bStatsPluginId);
+            try {
+
+                final int bStatsPluginId = 12345;
+                Metrics bStatsMetrics = new Metrics(this, bStatsPluginId);
+
+            }
+            catch (Exception e) {
+
+                log("bStats connection could not be established: " + e.getMessage(), ConsoleUtils.LogType.WARNING);
+
+            }
         }
 
         newVersionAvailable = UpdateService.checkForUpdates();
