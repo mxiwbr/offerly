@@ -1,8 +1,10 @@
 name: Offerly
-version: '1.0.0-alpha'
+# description:
+author: mxiwbr
+website: https://github.com/mxiwbr/offerly
 
+version: '1.0.0-alpha'
 main: io.github.mxiwbr.offerly.Offerly
+# Plugin works in 1.21.11 and newer versions
 api-version: '1.21.11'
 load: POSTWORLD
-
-authors: [ mxiwbr ]

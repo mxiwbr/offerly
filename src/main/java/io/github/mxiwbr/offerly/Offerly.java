@@ -51,7 +51,7 @@ public final class Offerly extends JavaPlugin {
             }
             catch (Exception e) {
 
-                log("bStats connection could not be established: " + e.getMessage(), ConsoleUtils.LogType.WARNING);
+                log("An error occurred while trying to establish bStats connection: " + e.getMessage(), ConsoleUtils.LogType.WARNING);
 
             }
         }
