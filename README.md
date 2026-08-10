@@ -39,8 +39,8 @@ SHORT DESCRIPTION
 | `/offerly version`                   | Shows the current plugin version in the ingame chat and checks for updates.    | OP         |
 
 ## Supported Versions
-- PaperMC on Minecraft Versions 1.21.5 - 26.1.2
-- PurpurMC on Minecraft Versions 1.21.5 - 26.1.2
+- PaperMC on Minecraft Versions 1.21.11 - 26.1.2
+- PurpurMC on Minecraft Versions 1.21.11 - 26.1.2
 
 ## Config
 Edit the `config.yml` in the plugin's folder to adapt it to your preferences:
