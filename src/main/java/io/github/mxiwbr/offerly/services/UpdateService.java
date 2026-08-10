@@ -88,7 +88,7 @@ public class UpdateService {
         try {
 
             player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
-                    .append(Component.text("There is a newer plugin version available: "
+                    .append(Component.text("There is a new plugin version available: "
                                     + UpdateService.getLatestVersion()
                                     + ", you're on: "
                                     + Offerly.INSTANCE.getPluginMeta().getVersion(), NamedTextColor.GREEN)
