@@ -33,6 +33,8 @@ public class CommandActions {
                 .append(Component.text(" - Enables the plugin", NamedTextColor.WHITE)));
         player.sendMessage(Component.text("/offerly help", NamedTextColor.GRAY)
                 .append(Component.text(" - Writes this help page in the chat", NamedTextColor.WHITE)));
+        player.sendMessage(Component.text("/offerly version", NamedTextColor.GOLD)
+                .append(Component.text(" - Shows the current plugin version in the chat and checks for updates.", NamedTextColor.WHITE)));
         player.sendMessage(Component.text("/offerly reloadconfig", NamedTextColor.BLUE)
                 .append(Component.text(" - Reloads the plugin's config", NamedTextColor.WHITE)));
         player.sendMessage(Component.text("/offerly resetconfig", NamedTextColor.DARK_RED)
