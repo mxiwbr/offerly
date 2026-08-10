@@ -2,6 +2,7 @@ package io.github.mxiwbr.offerly.commands;
 
 import io.github.mxiwbr.offerly.Offerly;
 import io.github.mxiwbr.offerly.config.Config;
+import io.github.mxiwbr.offerly.services.UpdateService;
 import io.github.mxiwbr.offerly.utils.ConsoleUtils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
@@ -36,6 +37,35 @@ public class CommandActions {
                 .append(Component.text(" - Reloads the plugin's config", NamedTextColor.WHITE)));
         player.sendMessage(Component.text("/offerly resetconfig", NamedTextColor.DARK_RED)
                 .append(Component.text(" - Resets the plugin’s config and automatically reloads it", NamedTextColor.WHITE)));
+
+    }
+
+    /**
+     * Actions of the /offerly version command
+     * @param player
+     */
+    public static void commandVersion(Player player) {
+
+        try {
+
+            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+                    .append(Component.text("You are using version "
+                                    + Offerly.INSTANCE.getPluginMeta().getVersion()
+                                    + " of this plugin. "
+                                    + (UpdateService.checkForUpdates()
+                                    ? "You're up-to-date!"
+                                    : "There is a new version available: "
+                                    + UpdateService.getLatestVersion()), NamedTextColor.GRAY)
+                            .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
+
+        }
+        catch (Exception e) {
+
+            player.sendMessage(Component.text("Something went wrong while executing the command ", NamedTextColor.RED)
+                .append(Component.text("/offerly version", NamedTextColor.YELLOW))
+                    .append(Component.text(". Please try again later.", NamedTextColor.RED)));
+
+        }
 
     }
 
