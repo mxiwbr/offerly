@@ -45,7 +45,7 @@ public final class Offerly extends JavaPlugin {
 
             try {
 
-                final int bStatsPluginId = 12345;
+                final int bStatsPluginId = 33282;
                 Metrics bStatsMetrics = new Metrics(this, bStatsPluginId);
 
             }

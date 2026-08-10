@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "io.github.mxiwbr"
-version = "1.0.0-alpha  "
+version = "1.0.0-alpha"
 
 repositories {
     mavenCentral()
@@ -34,4 +34,13 @@ tasks.test {
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
+
+tasks.shadowJar {
+
+    configurations = project.configurations.runtimeClasspath.map { setOf(it) }
+
+    // Relocate bStats into the plugin's package to avoid conflicts with other
+    // plugins using bStats
+    relocate("org.bstats", project.group.toString())
 }
