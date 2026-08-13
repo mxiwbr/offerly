@@ -2,6 +2,7 @@ package io.github.mxiwbr.offerly.commands;
 
 import io.github.mxiwbr.offerly.Offerly;
 import io.github.mxiwbr.offerly.config.Config;
+import io.github.mxiwbr.offerly.gui.MainMenu;
 import io.github.mxiwbr.offerly.services.UpdateService;
 import io.github.mxiwbr.offerly.utils.ConsoleUtils;
 import net.kyori.adventure.text.Component;
@@ -25,20 +26,29 @@ public class CommandActions {
      */
     public static void commandHelp(Player player) {
 
-        player.sendMessage(Component.text("=== Offerly Commands ===", NamedTextColor.DARK_AQUA, TextDecoration.BOLD));
+        player.sendMessage(Component.text("=== Offerly Commands ===", NamedTextColor.GOLD, TextDecoration.BOLD));
         player.sendMessage(Component.text(""));
-        player.sendMessage(Component.text("/offerly disable", NamedTextColor.RED)
-                .append(Component.text(" - Disables the plugin", NamedTextColor.WHITE)));
-        player.sendMessage(Component.text("/offerly enable", NamedTextColor.GREEN)
-                .append(Component.text(" - Enables the plugin", NamedTextColor.WHITE)));
         player.sendMessage(Component.text("/offerly help", NamedTextColor.GRAY)
                 .append(Component.text(" - Writes this help page in the chat", NamedTextColor.WHITE)));
-        player.sendMessage(Component.text("/offerly version", NamedTextColor.GOLD)
-                .append(Component.text(" - Shows the current plugin version in the chat and checks for updates.", NamedTextColor.WHITE)));
-        player.sendMessage(Component.text("/offerly reloadconfig", NamedTextColor.BLUE)
-                .append(Component.text(" - Reloads the plugin's config", NamedTextColor.WHITE)));
-        player.sendMessage(Component.text("/offerly resetconfig", NamedTextColor.DARK_RED)
-                .append(Component.text(" - Resets the plugin’s config and automatically reloads it", NamedTextColor.WHITE)));
+
+        // OP commands only visible to operators
+        if (player.isOp()) {
+
+            player.sendMessage(Component.text("/offerly disable", NamedTextColor.RED)
+                    .append(Component.text(" - Disables the plugin", NamedTextColor.WHITE)));
+            player.sendMessage(Component.text("/offerly enable", NamedTextColor.GREEN)
+                    .append(Component.text(" - Enables the plugin", NamedTextColor.WHITE)));
+            player.sendMessage(Component.text("/offerly version", NamedTextColor.AQUA)
+                    .append(Component.text(" - Shows the current plugin version in the chat and checks for updates.", NamedTextColor.WHITE)));
+            player.sendMessage(Component.text("/offerly reloadconfig", NamedTextColor.BLUE)
+                    .append(Component.text(" - Reloads the plugin's config", NamedTextColor.WHITE)));
+            player.sendMessage(Component.text("/offerly resetconfig", NamedTextColor.DARK_RED)
+                    .append(Component.text(" - Resets the plugin’s config and automatically reloads it", NamedTextColor.WHITE)));
+
+        }
+
+        player.sendMessage(Component.text("/offerly marketplace", NamedTextColor.GOLD)
+                .append(Component.text(" - Opens the marketplace menu.", NamedTextColor.WHITE)));
 
     }
 
@@ -176,6 +186,13 @@ public class CommandActions {
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
             log("The config has been reset by " + player.getName(), ConsoleUtils.LogType.INFO);
         }
+
+    }
+
+    public static void commandMarketplace(Player player) {
+
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.open(player);
 
     }
 
