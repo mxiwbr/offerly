@@ -83,6 +83,11 @@ This plugin is licensed under the **GNU General Public License v3**.
 - You must always provide **credit to the original author**.  
 - For more information, see the full license: [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-## Credits
+## Credits & Dependencies
 
-Developed by [**mxiwbr**](https://github.com/mxiwbr)
+### Author
+Developed with ❤ by [**mxiwbr**](https://github.com/mxiwbr)
+
+### Open Source Libraries
+A big thanks to the open-source projects that made this plugin possible:
+* **[IF](https://github.com/stefvanschie/IF)** by [stefvanschie](https://github.com/stefvanschie) - Used for building high-performance inventory-based user interfaces (Licensed under the **MIT License**).

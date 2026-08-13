@@ -32,6 +32,9 @@ dependencies {
 
     // Gson implementation for plugin update service
     implementation("com.google.code.gson:gson:2.14.0")
+
+    // FI framework for GUIs
+    implementation("com.github.stefvanschie.inventoryframework:IF:0.12.0")
 }
 
 tasks.test {
@@ -57,9 +60,27 @@ tasks.shadowJar {
     relocate("org.bstats", "${project.group}.libs.bstats")
     relocate("com.google.gson", "${project.group}.libs.gson")
     relocate("org.apache.commons.text", "${project.group}.libs.commonstext")
+    relocate("com.github.stefvanschie.inventoryframework", "${project.group}.libs.inventoryframework")
 
     // Minimize to reduce file size except GSON implementation
     minimize {
-        exclude(dependency("com.google.code.gson:gson:.*"))
+
+        // keep GSON
+        exclude(
+            dependency(
+                "com.google.code.gson:gson:.*"
+            )
+        )
+
+        // keep IF
+        exclude(
+            dependency(
+                "com.github.stefvanschie.inventoryframework:IF:.*"
+            )
+        )
+    }
+
+    manifest {
+        attributes["paperweight-mappings-namespace"] = "spigot"
     }
 }
