@@ -12,38 +12,45 @@
 SHORT DESCRIPTION
 
 ## Features
+
 * ...
 * ...
 * ...
 * ...
 
 ## Usage
+
 1. ...
 2. ...
 3. ...
 
 ## Installation
-1. Download the latest .jar from [Modrinth](https://modrinth.com/project/offerly/versions) or [GitHub](https://github.com/mxiwbr/offerly/releases)
+
+1. Download the latest .jar from [Modrinth](https://modrinth.com/project/offerly/versions)
+   or [GitHub](https://github.com/mxiwbr/offerly/releases)
 2. Place it in your server's `plugins` folder
 3. (Optional) Configure the plugin via `config.yml` and restart the server or use the plugin's reload command
 
 ## Commands
 
-| Command                              | Description                                                                    | Permission |
-|--------------------------------------|--------------------------------------------------------------------------------|------------|
-| `/offerly disable`                   | Disables the plugin.                                                           | OP         |
-| `/offerly enable`                    | Enables the plugin.                                                            | OP         |
-| `/offerly reloadconfig`              | Reloads the plugin’s configuration (`config.yml`).                             | OP         |
-| `/offerly resetconfig`               | Resets the plugin’s configuration (`config.yml`) and automatically reloads it. | OP         |
-| `/offerly help`                      | Shows this command overview in the ingame chat.                                | OP         |
-| `/offerly version`                   | Shows the current plugin version in the ingame chat and checks for updates.    | OP         |
+| Command                 | Description                                                                    | Permission |
+|-------------------------|--------------------------------------------------------------------------------|------------|
+| `/offerly disable`      | Disables the plugin.                                                           | OP         |
+| `/offerly enable`       | Enables the plugin.                                                            | OP         |
+| `/offerly reloadconfig` | Reloads the plugin’s configuration (`config.yml`).                             | OP         |
+| `/offerly resetconfig`  | Resets the plugin’s configuration (`config.yml`) and automatically reloads it. | OP         |
+| `/offerly help`         | Shows this command overview in the ingame chat.                                | OP         |
+| `/offerly version`      | Shows the current plugin version in the ingame chat and checks for updates.    | OP         |
 
 ## Supported Versions
+
 - PaperMC on Minecraft Versions 1.21.11 - 26.1.2
 - PurpurMC on Minecraft Versions 1.21.11 - 26.1.2
 
 ## Config
+
 Edit the `config.yml` in the plugin's folder to adapt it to your preferences:
+
 ```
 # =========================================
 # Offerly - Configuration
@@ -66,28 +73,39 @@ bstats:
 ```
 
 #### Resetting the config
-In order to reset the plugin's config to its default values, either use the `/offerly resetconfig` command or delete the `config.yml` file in the plugin's folder and restart the server.
+
+In order to reset the plugin's config to its default values, either use the `/offerly resetconfig` command or delete the
+`config.yml` file in the plugin's folder and restart the server.
 
 ## Help
+
 If you need any help, please feel free to open an issue: [Open an issue](https://github.com/mxiwbr/offerly/issues)
 
 ## bStats
-This plugin uses [bStats](https://bstats.org/) to collect **anonymous statistics** like player counts and server versions.  
+
+This plugin uses [bStats](https://bstats.org/) to collect **anonymous statistics** like player counts and server
+versions.  
 All data collected is **anonymous and secure**, helping to improve the plugin.  
 If you don't want the plugin to send data, disable bStats in the config.yml.
 
 ## License
-This plugin is licensed under the **GNU General Public License v3**.  
+
+This plugin is licensed under the **GNU General Public License v3**.
+
 - You are free to **use, modify, and redistribute** the plugin **under the same GPLv3 license**.
 - **Uploading** or sharing the plugin **without proper modifications** is **strictly prohibited**.
-- You must always provide **credit to the original author**.  
+- You must always provide **credit to the original author**.
 - For more information, see the full license: [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Credits & Dependencies
 
 ### Author
+
 Developed with ❤ by [**mxiwbr**](https://github.com/mxiwbr)
 
 ### Open Source Libraries
+
 A big thanks to the open-source projects that made this plugin possible:
-* **[IF](https://github.com/stefvanschie/IF)** by [stefvanschie](https://github.com/stefvanschie) - Used for building high-performance inventory-based user interfaces (Licensed under the **MIT License**).
+
+* [IF](https://github.com/stefvanschie/IF) by [stefvanschie](https://github.com/stefvanschie) - An inventory framework
+  for managing GUIs (licensed under the **[Unlicense](https://github.com/stefvanschie/IF/blob/master/LICENSE)**).
