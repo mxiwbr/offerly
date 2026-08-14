@@ -50,7 +50,7 @@ public class MainMenu {
                                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTMzZmM5YTQ1YmUxM2NhNTdhNzhiMjE3NjJjNmUxMjYyZGFlNDExZjEzMDQ4Yjk2M2Q5NzJhMjllMDcwOTZhYiJ9fX0=",
                                 1
                         ),
-                        event -> event.getWhoClicked().sendMessage("[DEBUG] open marketplace")
+                        event -> event.getWhoClicked().sendMessage("[DEBUG] Open Marketplace for " + event.getWhoClicked().getName())
                 ), 4, 1
         );
 
