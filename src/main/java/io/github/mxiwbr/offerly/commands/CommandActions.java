@@ -22,11 +22,12 @@ public class CommandActions {
 
     /**
      * Actions of the /offerly help command
+     *
      * @param player
      */
     public static void commandHelp(Player player) {
 
-        player.sendMessage(Component.text("=== Offerly Commands ===", NamedTextColor.GOLD, TextDecoration.BOLD));
+        player.sendMessage(Component.text("=== " + Offerly.pluginName + " Commands ===", NamedTextColor.GOLD, TextDecoration.BOLD));
         player.sendMessage(Component.text(""));
         player.sendMessage(Component.text("/offerly help", NamedTextColor.GRAY)
                 .append(Component.text(" - Writes this help page in the chat", NamedTextColor.WHITE)));
@@ -54,13 +55,14 @@ public class CommandActions {
 
     /**
      * Actions of the /offerly version command
+     *
      * @param player
      */
     public static void commandVersion(Player player) {
 
         try {
 
-            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+            player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text("You are using version "
                                     + Offerly.INSTANCE.getPluginMeta().getVersion()
                                     + " of this plugin. "
@@ -70,11 +72,10 @@ public class CommandActions {
                                     + UpdateService.getLatestVersion()), NamedTextColor.GRAY)
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
             player.sendMessage(Component.text("Something went wrong while executing the command ", NamedTextColor.RED)
-                .append(Component.text("/offerly version", NamedTextColor.YELLOW))
+                    .append(Component.text("/offerly version", NamedTextColor.YELLOW))
                     .append(Component.text(". Please try again later.", NamedTextColor.RED)));
 
         }
@@ -90,7 +91,7 @@ public class CommandActions {
         Offerly.INSTANCE.getConfig().set("enabled", true);
         Offerly.INSTANCE.saveConfig();
 
-        player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+        player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                 .append(Component.text("The plugin was enabled.", NamedTextColor.GREEN)
                         .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
@@ -107,7 +108,7 @@ public class CommandActions {
         Offerly.INSTANCE.getConfig().set("enabled", false);
         Offerly.INSTANCE.saveConfig();
 
-        player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+        player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                 .append(Component.text("The plugin was disabled.", NamedTextColor.RED)
                         .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
@@ -117,11 +118,12 @@ public class CommandActions {
 
     /**
      * Reload the config: /offerly reload
+     *
      * @param player
      */
     public static void commandReloadConfig(Player player) {
 
-        player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+        player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                 .append(Component.text("Reloading config...", NamedTextColor.GREEN)
                         .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
@@ -129,15 +131,15 @@ public class CommandActions {
 
         if (!(new File(Offerly.INSTANCE.getDataFolder(), "config.yml").exists())) {
 
-            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+            player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text("No config.yml file could be found! Please use ", NamedTextColor.RED)
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE))
-                                     .append(Component.text("/offerly resetconfig", NamedTextColor.YELLOW)
-                                             .clickEvent(ClickEvent.suggestCommand("/offerly resetconfig"))
-                                             .hoverEvent(Component.text("Click to insert command", NamedTextColor.YELLOW))
-                                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE))
-                                                        .append(Component.text(" to create a new one.", NamedTextColor.RED)
-                                                                    .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
+                    .append(Component.text("/offerly resetconfig", NamedTextColor.YELLOW)
+                            .clickEvent(ClickEvent.suggestCommand("/offerly resetconfig"))
+                            .hoverEvent(Component.text("Click to insert command", NamedTextColor.YELLOW))
+                            .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE))
+                    .append(Component.text(" to create a new one.", NamedTextColor.RED)
+                            .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
             log("An error occurred when reloading the config: No config.yml file could be found!", ConsoleUtils.LogType.SEVERE);
 
@@ -150,14 +152,13 @@ public class CommandActions {
 
         if (Offerly.CONFIG.isLoadFailed()) {
 
-            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+            player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text("Reload of config failed! Please check the server log for more information.", NamedTextColor.RED)
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
-        }
-        else {
+        } else {
 
-            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+            player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text("Successfully reloaded the config!", NamedTextColor.GREEN)
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
             log("Successfully reloaded the config!", ConsoleUtils.LogType.ADDITIONAL_INFO);
@@ -169,19 +170,18 @@ public class CommandActions {
     public static void commandResetConfig(Player player, boolean confirmed) {
 
         if (!confirmed) {
-            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+            player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text("Warning: This will reset all values in config.yml! Use ", NamedTextColor.RED)
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE))
-                                    .append(Component.text("/offerly resetconfig confirm", NamedTextColor.YELLOW)
-                                            .clickEvent(ClickEvent.suggestCommand("/offerly resetconfig confirm"))
-                                            .hoverEvent(Component.text("Click to insert command", NamedTextColor.YELLOW))
-                                            .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE))
-                                                    .append(Component.text(" to proceed.", NamedTextColor.RED)
-                                                            .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
-        }
-        else {
+                    .append(Component.text("/offerly resetconfig confirm", NamedTextColor.YELLOW)
+                            .clickEvent(ClickEvent.suggestCommand("/offerly resetconfig confirm"))
+                            .hoverEvent(Component.text("Click to insert command", NamedTextColor.YELLOW))
+                            .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE))
+                    .append(Component.text(" to proceed.", NamedTextColor.RED)
+                            .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
+        } else {
             Config.resetConfigFile();
-            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+            player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text("The config has been reset and reloaded successfully.", NamedTextColor.GREEN)
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
             log("The config has been reset by " + player.getName(), ConsoleUtils.LogType.INFO);

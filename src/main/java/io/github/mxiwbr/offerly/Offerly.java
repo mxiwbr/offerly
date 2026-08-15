@@ -20,11 +20,15 @@ public final class Offerly extends JavaPlugin {
     public static Config CONFIG;
     public static Boolean newVersionAvailable;
 
+    public static String pluginName;
+
     @Override
     public void onEnable() {
 
         // Global plugin instance object
         INSTANCE = this;
+
+        pluginName = this.getName();
 
         this.getLogger().info("Loading config.yml...");
         // creates a default config.yml if there is none
@@ -48,8 +52,7 @@ public final class Offerly extends JavaPlugin {
                 final int bStatsPluginId = 33282;
                 Metrics bStatsMetrics = new Metrics(this, bStatsPluginId);
 
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
 
                 log("An error occurred while trying to establish bStats connection: " + e.getMessage(), ConsoleUtils.LogType.WARNING);
 

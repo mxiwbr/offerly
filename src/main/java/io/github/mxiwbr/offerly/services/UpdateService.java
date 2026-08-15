@@ -22,6 +22,7 @@ public class UpdateService {
 
     /**
      * Scans the GitHub page for new releases
+     *
      * @return true or false whether a new update is available
      */
     public static Boolean checkForUpdates() {
@@ -48,7 +49,9 @@ public class UpdateService {
 
             log("An error occurred while checking for updates:", ConsoleUtils.LogType.WARNING);
             log(e.getClass().getSimpleName() + " - " + e.getMessage(), ConsoleUtils.LogType.WARNING);
-            if (Offerly.CONFIG.isEnableConsoleLogging()) { e.printStackTrace(); }
+            if (Offerly.CONFIG.isEnableConsoleLogging()) {
+                e.printStackTrace();
+            }
         }
 
         return false;
@@ -57,6 +60,7 @@ public class UpdateService {
 
     /**
      * Gets latest plugin version from Modrinth (Modrinth API) and returns it as string
+     *
      * @throws IOException
      * @throws InterruptedException
      */
@@ -81,21 +85,21 @@ public class UpdateService {
 
     /**
      * Sends the update available message to a player in the ingame chat
+     *
      * @param player
      */
     public static void sendUpdateMessageToPlayer(Player player) {
 
         try {
 
-            player.sendMessage(Component.text("[Offerly] ", NamedTextColor.GREEN, TextDecoration.BOLD)
+            player.sendMessage(Component.text("[" + Offerly.pluginName + "] ", NamedTextColor.GREEN, TextDecoration.BOLD)
                     .append(Component.text("There is a new plugin version available: "
                                     + UpdateService.getLatestVersion()
                                     + ", you're on: "
                                     + Offerly.INSTANCE.getPluginMeta().getVersion(), NamedTextColor.GREEN)
                             .decorationIfAbsent(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
             Offerly.LOGGER.severe(e.getMessage());
 
